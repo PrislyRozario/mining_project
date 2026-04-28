@@ -1,6 +1,6 @@
-🛠️ Real-Time 3D Underground Mine Digital Twin for Safety Monitoring
+Real-Time 3D Underground Mine Digital Twin for Safety Monitoring
 
-📌 Overview
+Overview
 
 This project is a **real-time industrial monitoring system** that simulates an underground mine environment and visualizes it in a **3D digital twin**.
 
@@ -13,7 +13,7 @@ It demonstrates how modern mining systems monitor:
 
 ---
 
-🎯 Objectives
+Objectives
 
 * Simulate real-time industrial telemetry
 * Visualize mine operations using 3D graphics
@@ -22,7 +22,7 @@ It demonstrates how modern mining systems monitor:
 
 ---
 
-🏗️ System Architecture
+System Architecture
 
 ```text
 C# Simulation Service
@@ -36,7 +36,7 @@ Three.js 3D Visualization
 
 ---
 
-⚙️ Technologies Used
+Technologies Used
 
 Backend
 
@@ -60,7 +60,7 @@ Concepts
 
 ---
 
-🔄 How the System Works
+How the System Works
 
 1. Data Simulation (Backend)
 
@@ -119,27 +119,27 @@ Dynamic behavior:
 
 The backend generates alerts for:
 
-* 🚨 Proximity risk
-* ⚠ Equipment faults
-* ☣ Gas dangers
+* Proximity risk
+* Equipment faults
+* Gas dangers
 
 
 ---
 
-📊 Key Features
+Key Features
 
-* ✅ Real-time data streaming (SignalR)
-* ✅ 3D underground visualization
-* ✅ Worker tracking
-* ✅ Equipment monitoring
-* ✅ Gas/environment monitoring
-* ✅ Proximity detection
-* ✅ Alert system
-* ✅ Interactive dashboard
+* Real-time data streaming (SignalR)
+* 3D underground visualization
+* Worker tracking
+* Equipment monitoring
+* Gas/environment monitoring
+* Proximity detection
+* Alert system
+* Interactive dashboard
 
 ---
 
-📁 Project Structure
+Project Structure
 
 ```text
 backend/
@@ -161,15 +161,14 @@ frontend/
 
 
 
-Open App
+Live Demo
 
-```
-http://localhost:5173
-```
+- 🔗 Frontend (Vercel): https://mining-project-92l7.vercel.app  
+- 🔗 Backend (Render): https://mining-project-4k5s.onrender.com  
 
 ---
 
-📸 Screenshots
+Screenshots
 
 
 ![3D View](https://github.com/user-attachments/assets/df98a478-83b9-4f0a-aaf9-0c8119ea3015)
@@ -178,7 +177,7 @@ http://localhost:5173
 
 
 
-🔌 Industrial Relevance
+Industrial Relevance
 
 This project mimics real-world systems:
 
