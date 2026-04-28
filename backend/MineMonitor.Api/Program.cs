@@ -11,10 +11,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-             .WithOrigins(
-                "http://localhost:5173",
-                "https://mining-project-92l7.vercel.app"
-            )
+            .WithOrigins(
+    "http://localhost:5173",
+    "https://mining-project-92l7.vercel.app",
+    "https://mining-project-92l7-qdzkwjfqd-prisly-rozarios-projects.vercel.app"
+)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
