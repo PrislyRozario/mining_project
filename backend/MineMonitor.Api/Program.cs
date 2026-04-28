@@ -24,12 +24,16 @@ builder.Services.AddHostedService<MineSimulationService>();
 
 var app = builder.Build();
 
+app.UseRouting();
+
 app.UseCors("AllowFrontend");
 
-app.MapControllers();
-app.MapHub<MineHub>("/mineHub");
+app.MapControllers().RequireCors("AllowFrontend");
 
-app.MapGet("/", () => "Mine Monitor API is running.");
+app.MapHub<MineHub>("/mineHub").RequireCors("AllowFrontend");
+
+app.MapGet("/", () => "Mine Monitor API is running. CORS VERSION 2")
+   .RequireCors("AllowFrontend");
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Run($"http://0.0.0.0:{port}");
