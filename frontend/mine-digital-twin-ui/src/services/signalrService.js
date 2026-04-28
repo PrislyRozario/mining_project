@@ -2,7 +2,7 @@ import * as signalR from "@microsoft/signalr";
 
 export function createMineConnection(onTelemetry, onConnectionChange) {
   const connection = new signalR.HubConnectionBuilder()
-    .withUrl("http://localhost:5000/mineHub")
+    .withUrl("https://mining-project-4k5s.onrender.com/")
     .withAutomaticReconnect()
     .build();
 
