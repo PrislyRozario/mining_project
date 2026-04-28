@@ -21,8 +21,10 @@ app.Use(async (context, next) =>
     {
         context.Response.Headers["Access-Control-Allow-Origin"] = origin;
         context.Response.Headers["Access-Control-Allow-Credentials"] = "true";
-        context.Response.Headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, x-requested-with";
-        context.Response.Headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS";
+        context.Response.Headers["Access-Control-Allow-Headers"] =
+            context.Request.Headers["Access-Control-Request-Headers"].ToString();
+        context.Response.Headers["Access-Control-Allow-Methods"] =
+            "GET, POST, PUT, DELETE, OPTIONS";
     }
 
     if (context.Request.Method == "OPTIONS")
