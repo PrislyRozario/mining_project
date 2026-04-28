@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MineMonitor.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d31a349a6371860f4d42e76a6784798e4b1b751f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61f4a92ab18ada834e955572b50f23f23a7cc2a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("MineMonitor.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MineMonitor.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
