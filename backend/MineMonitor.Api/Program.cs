@@ -6,34 +6,38 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy
-            .SetIsOriginAllowed(_ => true)
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
-    });
-});
-
 builder.Services.AddSingleton<AlertService>();
 builder.Services.AddSingleton<ProximityDetectionService>();
 builder.Services.AddHostedService<MineSimulationService>();
 
 var app = builder.Build();
 
-app.UseRouting();
+// Manual CORS fix for Render + SignalR
+app.Use(async (context, next) =>
+{
+    var origin = context.Request.Headers["Origin"].ToString();
 
-app.UseCors("AllowFrontend");
+    if (!string.IsNullOrEmpty(origin))
+    {
+        context.Response.Headers["Access-Control-Allow-Origin"] = origin;
+        context.Response.Headers["Access-Control-Allow-Credentials"] = "true";
+        context.Response.Headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, x-requested-with";
+        context.Response.Headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS";
+    }
 
-app.MapControllers().RequireCors("AllowFrontend");
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.StatusCode = 204;
+        return;
+    }
 
-app.MapHub<MineHub>("/mineHub").RequireCors("AllowFrontend");
+    await next();
+});
 
-app.MapGet("/", () => "Mine Monitor API is running. CORS VERSION 2")
-   .RequireCors("AllowFrontend");
+app.MapControllers();
+app.MapHub<MineHub>("/mineHub");
+
+app.MapGet("/", () => "Mine Monitor API is running. Manual CORS enabled.");
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Run($"http://0.0.0.0:{port}");
