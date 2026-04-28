@@ -12,9 +12,9 @@ builder.Services.AddCors(options =>
     {
         policy
             .WithOrigins(
-    "http://localhost:5173",
-    "https://mining-project-92l7.vercel.app",
-    "https://mining-project-92l7-qdzkwjfqd-prisly-rozarios-projects.vercel.app"
+                         "http://localhost:5173",
+                         "https://mining-project-92l7.vercel.app",
+                         "https://mining-project-92l7-qdzkwjfqd-prisly-rozarios-projects.vercel.app"
 )
             .AllowAnyHeader()
             .AllowAnyMethod()
