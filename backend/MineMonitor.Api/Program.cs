@@ -11,11 +11,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-            .WithOrigins(
-                         "http://localhost:5173",
-                         "https://mining-project-92l7.vercel.app",
-                         "https://mining-project-92l7-qdzkwjfqd-prisly-rozarios-projects.vercel.app"
-)
+            .SetIsOriginAllowed(_ => true)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -35,6 +31,5 @@ app.MapHub<MineHub>("/mineHub");
 
 app.MapGet("/", () => "Mine Monitor API is running.");
 
-// app.Run();
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Run($"http://0.0.0.0:{port}");
